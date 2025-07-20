@@ -1,21 +1,8 @@
-# Estructura mínima tipo Laravel para despliegue en Hostinger
 
-Esta es la estructura base para validar que tu hosting despliega correctamente un sitio tipo Laravel.
+# ambsite (WIP)
 
-```
-/ (raíz del repo)
-├── app/
-│   └── Http/
-│       └── Controllers/
-├── public/
-│   └── index.php
-├── resources/
-│   └── views/
-│       └── welcome.blade.php
-├── routes/
-│   └── web.php
-```
+This repository is currently under configuration and testing.
 
-- Sube todo el contenido a tu hosting.
-- Apunta la carpeta pública de tu dominio a `/public`.
-- Cuando instales Laravel con Composer, esta estructura se completará automáticamente.
+- The structure, files, and pre-commit hooks are being validated.
+- Content and code are subject to change.
+- Not ready for production use.

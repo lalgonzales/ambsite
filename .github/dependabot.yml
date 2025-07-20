@@ -4,6 +4,7 @@
 # https://docs.github.com/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file
 
 version: 2
+updates:
   # Dependencias PHP (Laravel) - composer
   - package-ecosystem: "composer"
     directory: "/" # Donde está composer.json
@@ -19,4 +20,4 @@ version: 2
   - package-ecosystem: "github-actions"
     directory: "/"
     schedule:
-      interval: "weekly" 
+      interval: "weekly"
