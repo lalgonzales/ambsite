@@ -1,0 +1,10 @@
+# .htaccess for ambsite: Redirect all traffic to /public
+RewriteEngine On
+RewriteCond %{REQUEST_URI} !^/public/
+RewriteRule ^(.*)$ /public/$1 [L]
+
+# Optional: Prevent directory listing
+Options -Indexes
+
+# Optional: Set default index file
+DirectoryIndex index.php
