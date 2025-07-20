@@ -1,0 +1,12 @@
+{
+  "name": "ambsite",
+  "version": "1.0.0",
+  "description": "Sitio web base para despliegue en Hostinger",
+  "scripts": {
+    "build": "echo \"No build step yet\"",
+    "test": "echo \"No tests yet\""
+  },
+  "author": "lalgonzales",
+  "license": "MIT",
+  "dependencies": {}
+}
