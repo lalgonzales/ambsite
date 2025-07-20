@@ -1,0 +1,29 @@
+# Laravel & PHP
+/vendor/
+/node_modules/
+.env
+.env.*
+.phpunit.result.cache
+/storage/*.key
+/storage/app/public/
+/storage/debugbar/
+/storage/framework/cache/data/
+/storage/framework/sessions/
+/storage/framework/testing/
+/storage/framework/views/
+/storage/logs/
+/public/storage
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
+*.log
+*.sqlite
+composer.lock
+npm-debug.log
+yarn-error.log
+# Carpeta privada para archivos temporales o documentación interna
+private/
+# Submódulo externo (ignorar en el repo principal)
+ai-assistance-guides/
+.instructions.md
