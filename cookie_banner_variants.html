@@ -1,0 +1,69 @@
+<!-- Variante 1: Banner Simple y Directo -->
+<div id="cookie-banner" class="cookie-banner cookie-variant-1" style="display: none;">
+    <div class="cookie-content">
+        <div class="cookie-text">
+            <span class="cookie-icon">🍪</span>
+            <div>
+                <p><strong>Usamos cookies para mejorar tu experiencia</strong></p>
+                <p>Al hacer click en "Aceptar" permites cookies de análisis y marketing. Puedes elegir "Solo esenciales" para cookies básicas únicamente.</p>
+            </div>
+        </div>
+        <div class="cookie-buttons">
+            <button id="accept-cookies" class="cookie-btn cookie-btn-primary">Aceptar</button>
+            <button id="reject-cookies" class="cookie-btn cookie-btn-secondary">Solo Esenciales</button>
+            <a href="{% url 'landings:privacy_policy' %}" class="cookie-link">Más info</a>
+        </div>
+    </div>
+</div>
+
+<!-- Variante 2: Banner Informativo pero Conciso -->
+<div id="cookie-banner" class="cookie-banner cookie-variant-2" style="display: none;">
+    <div class="cookie-content">
+        <div class="cookie-text">
+            <span class="cookie-icon">🍪</span>
+            <div>
+                <p><strong>Cookies necesarias para el sitio</strong></p>
+                <p>Usamos cookies esenciales para que funcione correctamente. Las opcionales nos ayudan a mejorar y mostrar contenido relevante.</p>
+            </div>
+        </div>
+        <div class="cookie-buttons">
+            <button id="accept-cookies" class="cookie-btn cookie-btn-primary">Aceptar Todo</button>
+            <button id="reject-cookies" class="cookie-btn cookie-btn-secondary">Solo Esenciales</button>
+            <a href="{% url 'landings:privacy_policy' %}" class="cookie-link">Política de Privacidad</a>
+        </div>
+    </div>
+</div>
+
+<!-- Variante 3: Banner con Enfoque en Control del Usuario -->
+<div id="cookie-banner" class="cookie-banner cookie-variant-3" style="display: none;">
+    <div class="cookie-content">
+        <div class="cookie-text">
+            <span class="cookie-icon">🍪</span>
+            <div>
+                <p><strong>Tú controlas tus cookies</strong></p>
+                <p>Elige qué cookies aceptar: esenciales (necesarias) o todas (incluyendo análisis y marketing de terceros).</p>
+            </div>
+        </div>
+        <div class="cookie-buttons">
+            <button id="accept-cookies" class="cookie-btn cookie-btn-primary">Aceptar Todas</button>
+            <button id="reject-cookies" class="cookie-btn cookie-btn-secondary">Solo Esenciales</button>
+            <a href="{% url 'landings:privacy_policy' %}" class="cookie-link">Saber Más</a>
+        </div>
+    </div>
+</div>
+
+<!-- Variante 4: Banner Minimalista -->
+<div id="cookie-banner" class="cookie-banner cookie-variant-4" style="display: none;">
+    <div class="cookie-content">
+        <div class="cookie-text">
+            <span class="cookie-icon">🍪</span>
+            <div>
+                <p>Este sitio usa cookies. <a href="{% url 'landings:privacy_policy' %}" class="cookie-link-inline">Más información</a></p>
+            </div>
+        </div>
+        <div class="cookie-buttons">
+            <button id="accept-cookies" class="cookie-btn cookie-btn-primary">Aceptar</button>
+            <button id="reject-cookies" class="cookie-btn cookie-btn-secondary">Rechazar</button>
+        </div>
+    </div>
+</div>

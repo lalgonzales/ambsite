@@ -29,13 +29,12 @@ SECRET_KEY = "django-insecure-59nef#ir@75_a4bb0nuhk7_5vq$7q1!di#5fn^ata*@5hh#k@x
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["localhost", "127.0.0.1", "testserver", "192.168.0.10"]
 
 
 # Application definition
 
 INSTALLED_APPS = [
-    "polls.apps.PollsConfig",
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
@@ -54,6 +53,8 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
+    "landings.middleware.CookieConsentMiddleware",
+    "landings.middleware.DataRetentionMiddleware",
 ]
 
 INTERNAL_IPS = [
@@ -62,7 +63,7 @@ INTERNAL_IPS = [
 ]
 
 TESTING = "test" in sys.argv or "PYTEST_VERSION" in os.environ
-if not TESTING:
+if not TESTING and False:  # Temporarily disable debug_toolbar
     INSTALLED_APPS = [*INSTALLED_APPS, "debug_toolbar"]
     MIDDLEWARE = ["debug_toolbar.middleware.DebugToolbarMiddleware", *MIDDLEWARE]
 
@@ -133,6 +134,10 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 
 STATIC_URL = "static/"
+# STATICFILES_DIRS = [
+#     BASE_DIR / "static",
+# ]
+STATIC_ROOT = BASE_DIR / "staticfiles"
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field

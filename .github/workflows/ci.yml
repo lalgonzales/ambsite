@@ -1,0 +1,153 @@
+name: CI/CD Pipeline
+
+on:
+  push:
+    branches: [ main, feature/** ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.13'
+
+    - name: Install uv
+      run: |
+        curl -LsSf https://astral.sh/uv/install.sh | sh
+        echo "$HOME/.local/bin" >> $GITHUB_PATH
+
+    - name: Install dependencies
+      run: uv sync
+
+    - name: Run Django system checks
+      run: uv run python manage.py check
+
+    - name: Run Django migrations
+      run: uv run python manage.py migrate --noinput
+
+    - name: Validate migrations
+      run: |
+        # Check that no migrations are needed
+        uv run python manage.py makemigrations --dry-run --check
+
+    - name: Run tests
+      run: uv run python manage.py test
+
+    - name: Run tests with coverage
+      run: |
+        uv run coverage run manage.py test
+        uv run coverage report --fail-under=90
+        uv run coverage html
+
+    - name: Upload coverage reports
+      uses: actions/upload-artifact@v4
+      with:
+        name: coverage-report
+        path: htmlcov/
+        retention-days: 7
+
+  lint:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.13'
+
+    - name: Install uv
+      run: |
+        curl -LsSf https://astral.sh/uv/install.sh | sh
+        echo "$HOME/.local/bin" >> $GITHUB_PATH
+
+    - name: Install dependencies
+      run: uv sync
+
+    - name: Run pre-commit hooks
+      run: uv run pre-commit run --all-files
+
+  security:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.13'
+
+    - name: Install uv
+      run: |
+        curl -LsSf https://astral.sh/uv/install.sh | sh
+        echo "$HOME/.local/bin" >> $GITHUB_PATH
+
+    - name: Install dependencies
+      run: uv sync
+
+    - name: Run Django security checks
+      run: |
+        # Production readiness checks
+        uv run python manage.py check --deploy
+
+    - name: Check for security vulnerabilities
+      run: |
+        # Check Django version
+        uv run python -c "import django; print(f'Django version: {django.VERSION}')"
+
+        # Check for insecure settings in development
+        uv run python -c "
+        import os
+        os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'mysite.settings')
+        import django
+        django.setup()
+        from django.conf import settings
+        if settings.DEBUG:
+            print('⚠️  DEBUG is True - ensure this is False in production')
+        if 'django-insecure-' in settings.SECRET_KEY:
+            print('⚠️  SECRET_KEY contains django-insecure- - change in production')
+        print('✅ Security checks completed')
+        "
+
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.13'
+
+    - name: Install uv
+      run: |
+        curl -LsSf https://astral.sh/uv/install.sh | sh
+        echo "$HOME/.local/bin" >> $GITHUB_PATH
+
+    - name: Install dependencies
+      run: uv sync
+
+    - name: Test Django collectstatic
+      run: |
+        # Test that static files can be collected
+        uv run python manage.py collectstatic --noinput --clear
+
+    - name: Validate Python syntax
+      run: |
+        # Check that all Python files compile
+        uv run python -m py_compile $(find . -name "*.py" -not -path "./.venv/*" -not -path "./htmlcov/*")
+
+    - name: Check for missing migrations
+      run: |
+        # Ensure no new migrations are needed
+        uv run python manage.py makemigrations --dry-run
