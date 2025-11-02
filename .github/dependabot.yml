@@ -29,4 +29,4 @@ updates:
     labels: ["deps", "github-actions"]
     commit-message:
       prefix: "deps(gha)"
-      
+
