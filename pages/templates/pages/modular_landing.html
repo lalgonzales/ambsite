@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block title %}{{ landing_page.title }}{% endblock %}
+
+{% block meta_description %}{{ landing_page.meta_description }}{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'pages/style.css' %}">
+{% endblock %}
+
+{% block content %}
+<!-- Hero Section (dynamic) -->
+<section class="hero hero--t1 hero--no-bg">
+    <img src="{% static 'pages/images/bgsurhn_s2_843.png' %}" alt="Hero Background" class="hero-bg-image">
+    <div class="hero-inner">
+        <!-- Hero content will go here -->
+    </div>
+</section>
+{% endblock %}

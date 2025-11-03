@@ -1,0 +1,65 @@
+/* static/pages/style.css */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Hero section styles */
+.hero {
+  display: flex;
+  min-height: 100vh;
+  align-items: center;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  justify-content: center;
+}
+
+.hero--no-bg {
+  background: none;
+}
+
+.hero-inner {
+  max-width: 100%;
+  margin: 0 auto;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+}
+
+.hero h1 {
+  font-size: 2.25rem;
+  margin: 0 0 12px;
+  line-height: 1.1;
+}
+
+.hero p {
+  font-size: 1.125rem;
+  margin: 0 0 18px;
+}
+
+.hero-bg-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+}
+
+/* Responsive */
+@media (min-width: 768px) {
+  .hero {
+    padding: 96px 24px;
+  }
+  .hero h1 {
+    font-size: 3rem;
+  }
+}
