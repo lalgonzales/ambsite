@@ -1,0 +1,19 @@
+<!-- filepath: /mnt/data/varios/ambsite/templates/base.html -->
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Ambiente y SIG{% endblock %}</title>
+    {% block extrahead %}{% endblock %}
+</head>
+<body>
+    {% block content %}{% endblock %}
+    {% block extrabody %}{% endblock %}
+</body>
+<footer>
+    <p style="text-align:center; margin: 0;">&copy; {% now "Y" %} Ambiente y SIG. Todos los derechos reservados.</p>
+    {% block extrafooter %}{% endblock %}
+</footer>
+</html>

@@ -1,0 +1,147 @@
+/* ======================================
+    Pages Styles
+    ====================================== */
+
+/* ===== CSS VARIABLES ===== */
+:root {
+
+    /* Fonts */
+    --font-family-primary: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    --font-family-secondary: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+
+    /* Font sizes */
+    --font_size-xs: 0.75rem;
+    --font-size-sm: 0.875rem;
+    --font-size-base: 1rem;
+    --font-size-lg: 1.125rem;
+    --font-size-xl: 1.25rem;
+    --font-size-2xl: 1.5rem;
+    --font-size-3xl: 1.875rem;
+    --font-size-4xl: 2.25rem;
+    --font-size-5xl: 3rem;
+    --font-size-6xl: 3.75rem;
+
+    /* Spacing */
+    --spacing-1: 0.25rem;
+    --spacing-2: 0.5rem;
+    --spacing-3: 0.75rem;
+    --spacing-4: 1rem;
+    --spacing-5: 1.25rem;
+    --spacing-6: 1.5rem;
+    --spacing-8: 2rem;
+    --spacing-10: 2.5rem;
+    --spacing-12: 3rem;
+    --spacing-16: 4rem;
+    --spacing-20: 5rem;
+    --spacing-24: 6rem;
+}
+
+
+/* Base styles */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: var(--font-family-primary);
+    font-size: var(--font-size-base);
+    line-height: 1.6;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+/* Hero section */
+.hero {
+    background: white url('images/hn_south_s2_843.png');
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    height: 100vh;
+    margin: 0 auto;
+    margin-top: -5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+.hero h1 {
+    width: 60%;
+    font-size: var(--font-size-5xl);
+    color: white;
+    text-transform: uppercase;
+    /* margin-bottom: -4rem; */
+}
+
+.hero h2 {
+    width: 60%;
+    font-size: 1.5rem;
+    color: white;
+}
+
+.hero video {
+    max-height: 50vh;
+    max-width: 60vw;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+}
+
+/* Boton cta */
+.cta-button {
+    display: inline-block;
+    margin-top: var(--spacing-6);
+    padding: var(--spacing-3) var(--spacing-6);
+    font-size: var(--font-size-lg);
+    color: white;
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+/* Footer */
+.disclaimer {
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 1rem;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    .hero {
+        background-attachment: fixed;
+    }
+
+    .hero h1 {
+        font-size: var(--font-size-2xl);
+        width: auto;
+    }
+
+    .hero h2 {
+        font-size: var(--font-size-lg);
+        width: auto;
+        margin-bottom: var(--spacing-5);
+    }
+
+    .hero video {
+        max-height: 40vh;
+        width: auto;
+    }
+
+    .disclaimer {
+        font-size: var(--font-size-xs);
+    }
+}

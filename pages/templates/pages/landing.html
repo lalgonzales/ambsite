@@ -1,0 +1,87 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block title %}{{ page.meta_title }}{% endblock %}
+{% block description %}{{ page.meta_description }}{% endblock %}
+
+
+{% block extrahead %}
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','{{ GTM_ID }}');</script>
+    <!-- End Google Tag Manager -->
+
+    <!-- Meta Pixel Code -->
+    <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '{{ FB_PIXEL_ID }}');
+    fbq('track', 'PageView');
+    fbq('track', 'Lead');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id={{ FB_PIXEL_ID }}&ev=PageView&noscript=1"
+    /></noscript>
+    <!-- End Meta Pixel Code -->
+    <link rel="stylesheet" href="{% static 'pages/style.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+{% endblock %}
+
+{% block content %}
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id={{ GTM_ID }}"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
+    {% for section in sections %}
+        {% if section.section_type == "hero" %}
+            <section class="hero">
+                <h1>{{ section.data.text1|default:""|linebreaks }}</h1>
+                <h2>{{ section.data.text2|default:""|linebreaks }}</h2>
+                <video controls width="100%">
+                    <source src="{% if section.data.video_url|slice:':4' == 'http' %}{{ section.data.video_url }}{% else %}{% static section.data.video_url %}{% endif %}" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <a href="{{ section.data.cta_btn_url|default:'#' }}" class="cta-button" target="_blank" onclick="acceptCookiesAndTrack"><i class="fab fa-whatsapp"></i> {{ section.data.cta_btn_text|default:"Contactar por WhatsApp" }}</a>
+            </section>
+        {% endif %}
+    {% endfor %}
+{% endblock %}
+
+
+{% block extrabody %}
+    <script>
+        // Function to handle cookie acceptance and tracking
+        function acceptCookiesAndTrack() {
+            // Register cookie acceptance
+            localStorage.setItem('cookies_accepted', 'true');
+            localStorage.setItem('accept_time', new Date().toISOString());
+
+            // Trigger tracking events
+            if (typeof gtag !== 'undefined') {
+                gtag('event', 'wa_group_join', {'event_category': 'engagement', 'event_label': 'ia_masterclass'});
+            }
+            if (typeof fbq !== 'undefined') {
+                fbq('track', 'Lead', {"content_name": "Whatsapp Group Join", "content_category": "IA Masterclass"});
+            }
+            console.log('Cookies accepted and tracking events triggered.');
+        }
+    </script>
+{% endblock %}
+
+
+{% block extrafooter %}
+    <section class="disclaimer">
+        <p>This site is not a part of Meta&trade; Platforms, Inc.</p>
+    </section>
+{% endblock %}
