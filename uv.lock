@@ -24,7 +24,7 @@ requires-dist = [{ name = "django", specifier = ">=5.2.7" }]
 
 [package.metadata.requires-dev]
 dev = [
-    { name = "commitizen", specifier = ">=4.9.1" },
+    { name = "commitizen", specifier = ">=4.13.10" },
     { name = "coverage", specifier = ">=7.11.0" },
     { name = "numpy", specifier = ">=2.3.4" },
     { name = "pillow", specifier = ">=12.0.0" },
@@ -110,7 +110,7 @@ wheels = [
 
 [[package]]
 name = "commitizen"
-version = "4.13.0"
+version = "4.13.10"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "argcomplete" },
@@ -126,9 +126,9 @@ dependencies = [
     { name = "termcolor" },
     { name = "tomlkit" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/b5/6c/373401c521611312aea4d199140034337aedd8fe3d4b038a72944503183a/commitizen-4.13.0.tar.gz", hash = "sha256:4d6c90c1e43d83a71b396ca6e65ef3d2e62bfc1961ad3ae7cd8a257478243455", size = 63927, upload-time = "2026-02-01T11:01:12.048Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/37/95/da2c71ed6a1c06836cdd4eb60a8b9e1bf05f4ce7029ab508081745171be9/commitizen-4.13.10.tar.gz", hash = "sha256:402b5bcd466be69ba79a3f380be6ba5b55ac658c7d2a93e82fc99668a6eb2673", size = 64106, upload-time = "2026-04-11T06:49:12.907Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/8b/e0/06de642b682cbde7ab5c867f980c5f230ff0ec3c385cb00c8aa27c6ce8c6/commitizen-4.13.0-py3-none-any.whl", hash = "sha256:95580503e9ddf750f7a7717467ab80bf641e6535b525fa8326386e1323b397da", size = 84964, upload-time = "2026-02-01T11:01:10.807Z" },
+    { url = "https://files.pythonhosted.org/packages/11/3a/ad70b3c7dc3da1255668a9396429b1d820c15b74a501668158e4574c1edd/commitizen-4.13.10-py3-none-any.whl", hash = "sha256:95a281317990ac613501fdfe65745cec1fa4042bc5d003a72d332a74926e3039", size = 85746, upload-time = "2026-04-11T06:49:11.167Z" },
 ]
 
 [[package]]
@@ -387,11 +387,11 @@ wheels = [
 
 [[package]]
 name = "packaging"
-version = "25.0"
+version = "26.0"
 source = { registry = "https://pypi.org/simple" }
-sdist = { url = "https://files.pythonhosted.org/packages/a1/d4/1fc4078c65507b51b96ca8f8c3ba19e6a61c8253c72794544580a7b6c24d/packaging-25.0.tar.gz", hash = "sha256:d443872c98d677bf60f6a1f2f8c1cb748e8fe762d2bf9d3148b5599295b0fc4f", size = 165727, upload-time = "2025-04-19T11:48:59.673Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/65/ee/299d360cdc32edc7d2cf530f3accf79c4fca01e96ffc950d8a52213bd8e4/packaging-26.0.tar.gz", hash = "sha256:00243ae351a257117b6a241061796684b084ed1c516a08c48a3f7e147a9d80b4", size = 143416, upload-time = "2026-01-21T20:50:39.064Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/20/12/38679034af332785aac8774540895e234f4d07f7545804097de4b666afd8/packaging-25.0-py3-none-any.whl", hash = "sha256:29572ef2b1f17581046b3a2227d5c611fb25ec70ca1ba8554b24b0e69331a484", size = 66469, upload-time = "2025-04-19T11:48:57.875Z" },
+    { url = "https://files.pythonhosted.org/packages/b7/b9/c538f279a4e237a006a2c98387d081e9eb060d203d8ed34467cc0f0b9b53/packaging-26.0-py3-none-any.whl", hash = "sha256:b36f1fef9334a5588b4166f8bcd26a14e521f2b55e6b9de3aaa80d3ff7a37529", size = 74366, upload-time = "2026-01-21T20:50:37.788Z" },
 ]
 
 [[package]]
